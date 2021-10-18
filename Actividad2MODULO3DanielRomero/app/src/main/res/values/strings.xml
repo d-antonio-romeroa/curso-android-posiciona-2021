@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Actividad 2 MODULO 3 Daniel Romero</string>
+    <string name="calculadora_b_sica">Calculadora Básica</string>
+    <string name="sum">+</string>
+    <string name="resta">-</string>
+    <string name="div">/</string>
+    <string name="mult">*</string>
+    <string name="n1">Número 1</string>
+    <string name="n2">Número 2</string>
+    <string name="total">Total</string>
+</resources>
