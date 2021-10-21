@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        mShowCount = (TextView) findViewById(R.id.show_count);
+        TextView mShowCount = (TextView) findViewById(R.id.show_count);
     }
 
     public void showToastMsg(View view) {
