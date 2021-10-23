@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="imagenDadoIzq" type="id" />
+    <item name="imagenDadoDer" type="id" />
+    <item name="lanzar" type="id" />
+</resources>
