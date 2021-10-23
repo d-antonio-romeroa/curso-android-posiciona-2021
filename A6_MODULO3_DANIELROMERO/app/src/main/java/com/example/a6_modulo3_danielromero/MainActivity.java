@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
     ImageButton product_1, product_2, product_3;
     private String mOrderMessage;
+    FloatingActionButton fab;
+    Integer mCount = 0;
+    TextView mShowCount;
 
 
     @Override
@@ -35,20 +38,45 @@ public class MainActivity extends AppCompatActivity {
 //             }
 //
 //        );
-        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
+        fab = findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                countUp(view);
                 Log.d("coloqueSuCodigoAqui", "se ha pulsado el boton FAB");
             }
         });
 
+        product_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showToastMsg(product_1.getContentDescription().toString());
+                Log.d("coloqueSuCodigoAqui", "se ha pulsado el boton ICECREAMSANDWICH");
+            }
+        });
 
-        TextView mShowCount = (TextView) findViewById(R.id.show_count);
+        product_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showToastMsg(product_2.getContentDescription().toString());
+                Log.d("coloqueSuCodigoAqui", "se ha pulsado el boton DONUTS");
+            }
+        });
+
+        product_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showToastMsg(product_3.getContentDescription().toString());
+                Log.d("coloqueSuCodigoAqui", "se ha pulsado el boton FROYO");
+            }
+        });
+
+
+        mShowCount = (TextView) findViewById(R.id.show_count);
     }
 
-    public void showToastMsg(View view) {
-        Toast toast = Toast.makeText(this, R.string.toast_message,
+    public void showToastMsg(String msg) {
+        Toast toast = Toast.makeText(this, msg,
                 Toast.LENGTH_SHORT);
         toast.show();
     }
