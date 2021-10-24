@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-    public void openSomeActivityForResult() {
+    public void openAddWordActivityResult() {
         Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
         someActivityResultLauncher.launch(intent);
     }
@@ -90,7 +90,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
 //                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
-                  openSomeActivityForResult();
+                  openAddWordActivityResult();
+
+            }
+        });
+
+        FloatingActionButton fab2 = findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
+//                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+                mWordViewModel.deleteAll();
 
             }
         });

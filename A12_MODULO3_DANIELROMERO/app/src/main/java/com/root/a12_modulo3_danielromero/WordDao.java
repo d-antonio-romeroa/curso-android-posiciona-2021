@@ -18,6 +18,7 @@ package com.root.a12_modulo3_danielromero;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -43,9 +44,15 @@ public interface WordDao {
     @Query("SELECT * from word_table ORDER BY word ASC")
     LiveData<List<Word>> getAlphabetizedWords();
 
+    @Query("SELECT * from word_table where word_table.word like :word_input ORDER BY word ASC")
+    Word getOneWord(String word_input);
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Word word);
 
     @Query("DELETE FROM word_table")
     void deleteAll();
+
+    @Delete
+    public void deleteWord(Word word);
 }

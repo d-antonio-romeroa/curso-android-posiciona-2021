@@ -32,6 +32,7 @@ public class WordRepository {
 
     private WordDao mWordDao;
     private LiveData<List<Word>> mAllWords;
+//    private void mDeleteAll;
 
     // Note that in order to unit test the WordRepository, you have to remove the Application
     // dependency. This adds complexity and much more code, and this sample is not about testing.
@@ -41,6 +42,8 @@ public class WordRepository {
         WordRoomDatabase db = WordRoomDatabase.getDatabase(application);
         mWordDao = db.wordDao();
         mAllWords = mWordDao.getAlphabetizedWords();
+//        mOneWord = mWordDao.getOneWord();
+//        mDeleteAll = mWordDao.deleteAll();
     }
 
     // Room executes all queries on a separate thread.
@@ -48,6 +51,8 @@ public class WordRepository {
     LiveData<List<Word>> getAllWords() {
         return mAllWords;
     }
+
+    public void deleteAll() { new deleteAllAsyncTask(mWordDao).execute(); }
 
     // You must call this on a non-UI thread or your app will crash.
     // Like this, Room ensures that you're not doing any long running operations on the main
@@ -67,6 +72,21 @@ public class WordRepository {
         @Override
         protected Void doInBackground(final Word... params) {
             mAsyncTaskDao.insert(params[0]);
+            return null;
+        }
+    }
+
+    private static class deleteAllAsyncTask extends AsyncTask<Word, Void, Void> {
+
+        private WordDao mAsyncTaskDao;
+
+        deleteAllAsyncTask(WordDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Word... params) {
+            mAsyncTaskDao.deleteAll();
             return null;
         }
     }
