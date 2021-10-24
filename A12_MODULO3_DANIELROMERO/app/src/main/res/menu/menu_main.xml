@@ -5,17 +5,17 @@
     <item
         android:id="@+id/action_settings1"
         android:orderInCategory="100"
-        android:title="Opción 1"
+        android:title="Borrar todos los datos"
         app:showAsAction="never"/>
     <item
         android:id="@+id/action_settings2"
         android:orderInCategory="100"
         android:title="Opción 2"
         app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_settings3"
-        android:orderInCategory="100"
-        android:title="Opción 3"
-        app:showAsAction="never"/>
+<!--    <item-->
+<!--        android:id="@+id/action_settings3"-->
+<!--        android:orderInCategory="100"-->
+<!--        android:title="Opción 3"-->
+<!--        app:showAsAction="never"/>-->
 
 </menu>

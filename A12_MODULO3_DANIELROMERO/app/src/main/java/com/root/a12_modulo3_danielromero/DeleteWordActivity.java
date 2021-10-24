@@ -2,17 +2,18 @@ package com.root.a12_modulo3_danielromero;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 /**
  * Activity for entering a word.
  */
 
-public class NewWordActivity extends AppCompatActivity {
+public class DeleteWordActivity extends AppCompatActivity {
 
     public static final String EXTRA_REPLY = "com.example.android.roomwordssample.REPLY";
 
@@ -21,7 +22,7 @@ public class NewWordActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_word);
+        setContentView(R.layout.activity_del_word);
         mEditWordView = findViewById(R.id.edit_word);
 
         final Button button = findViewById(R.id.button_delete);

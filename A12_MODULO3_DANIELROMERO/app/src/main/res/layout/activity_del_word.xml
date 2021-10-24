@@ -15,5 +15,5 @@
     <Button
         android:id="@+id/button_delete"
         style="@style/button_style"
-        android:text="@string/button_save" />
+        android:text="@string/button_delete" />
 </LinearLayout>

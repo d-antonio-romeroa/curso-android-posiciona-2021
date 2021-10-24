@@ -50,9 +50,33 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+    ActivityResultLauncher<Intent> deleteOneActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+
+                    if (result.getResultCode() == RESULT_OK) {
+                        Word word = new Word(result.getData().getStringExtra(DeleteWordActivity.EXTRA_REPLY));
+                        mWordViewModel.deleteWord(word);
+                    } else {
+                        Toast.makeText(
+                                getApplicationContext(),
+                                R.string.empty_not_saved,
+                                Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            });
+
     public void openAddWordActivityResult() {
         Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
         someActivityResultLauncher.launch(intent);
+    }
+
+    public void deleteWordActivityResult() {
+        Intent intent = new Intent(MainActivity.this, DeleteWordActivity.class);
+        deleteOneActivityResultLauncher.launch(intent);
     }
 
     @Override
@@ -101,7 +125,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
 //                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
-                mWordViewModel.deleteAll();
+//                mWordViewModel.deleteAll();
+                deleteWordActivityResult();
 
             }
         });
@@ -117,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings1) {
+            mWordViewModel.deleteAll();
             return true;
         }
         return super.onOptionsItemSelected(item);
