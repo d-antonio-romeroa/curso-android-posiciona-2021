@@ -8,27 +8,31 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withSpinnerText;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.is;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class eurToClpAndroidTest {
-
+public class spinnerAndroidTest {
 
     @Rule
-    public ActivityTestRule<eur_to_clp> activityRule =
-            new ActivityTestRule(eur_to_clp.class);
+    public ActivityTestRule<MainActivity> activityRule =
+            new ActivityTestRule(MainActivity.class);
 
     @Test
-    public void correctConversionClpToEur() {
-        onView(withId(R.id.convertir_to_clp))
+    public void correctSpinnerClicking() {
+        onView(withId(R.id.spinner))
                 .perform(click());
-        onView(withId(R.id.total_clp)).check(matches(withText("952.570")));
+        onData(allOf(is(instanceOf(String.class)), is("Mars"))).perform(click());
+        onView(withId(R.id.spinner)).check(matches(withSpinnerText("Mars")));
     }
 
 }
