@@ -28,7 +28,7 @@ public class eurToClpAndroidTest {
     public void correctConversionClpToEur() {
         onView(withId(R.id.convertir_to_clp))
                 .perform(click());
-        withId(R.id.total_clp).matches(withText("952.570"));
+        onView(withId(R.id.total_clp)).check(matches(withText("9522.570")));
     }
 
 }

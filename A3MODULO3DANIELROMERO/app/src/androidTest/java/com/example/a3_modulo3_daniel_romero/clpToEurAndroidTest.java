@@ -27,7 +27,7 @@ public class clpToEurAndroidTest {
 
     @Test
     public void tittleContent() {
-        onView(withText("Convertidora de Divisas"))
+        onView(withText("Convertidora de Divisaaas"))
                 .check(matches(isDisplayed()));
     }
 
@@ -35,7 +35,7 @@ public class clpToEurAndroidTest {
     public void correctConversionEurToClp() {
         onView(withId(R.id.convertir_to_eur))
                 .perform(click());
-        withId(R.id.total_eur).matches(withText("0.001"));
+        onView(withId(R.id.total_eur)).check(matches(withText("0.0021")));
     }
 
 //    @Rule
