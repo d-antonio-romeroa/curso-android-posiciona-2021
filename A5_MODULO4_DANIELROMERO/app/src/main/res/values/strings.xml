@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">A5_MODULO4_DANIELROMERO</string>
+    <string name="convertir">Convertir</string>
+    <string name="convertidora_de_divisas">Convertidora de Divisas</string>
+    <string name="eur">EUR</string>
+    <string name="total">-</string>
+    <string name="clp">CLP</string>
+    <string name="EUR_to_CLP_view" />
+</resources>
