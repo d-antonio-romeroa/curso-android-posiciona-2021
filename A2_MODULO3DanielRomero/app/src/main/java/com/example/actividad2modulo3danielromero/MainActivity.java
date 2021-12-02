@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
 import android.widget.TextView;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
     TextView total;
     Button sum, mult, div, resta;
     EditText n1, n2;
     float n1_float, n2_float, total_float = 0;
+    private static final String TAG = "Calculadora Simple";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +30,15 @@ public class MainActivity extends AppCompatActivity {
         n2 = (EditText) findViewById(R.id.n2);
         total = (TextView) findViewById(R.id.total);
 
-
-        System.out.println("----------------------------------------------------");
+        Log.d(TAG, " INICIO APP CALCULADORA");
+//        System.out.println("----------------------------------------------------");
 
 
         sum.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Log.d(TAG, " INICIO SUMA");
+
                 System.out.println(n1.getText());
                 if (!n1.getText().equals("")) {
                     n1_float = Float.parseFloat(n1.getText()+"");
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 total_float = n1_float + n2_float;
 
                 total.setText(total_float+"");
+                Log.d(TAG, " FIN SUMA, TOTAL: "+String.valueOf(total_float)+"");
 
             }
         });
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         resta.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Log.d(TAG, " INICIO RESTA");
                 if (!n1.getText().equals("")) {
                     n1_float = Float.parseFloat(n1.getText()+"");
                 } else {
@@ -71,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 total_float = n1_float - n2_float;
 
                 total.setText(total_float+"");
+                Log.d(TAG, " FIN RESTA, TOTAL: "+String.valueOf(total_float)+"");
 
             }
         });
@@ -78,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         mult.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Log.d(TAG, " INICIO MULTIPLICACION");
                 if (!n1.getText().equals("")) {
                     n1_float = Float.parseFloat(n1.getText()+"");
                 } else {
@@ -92,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 total_float = n1_float * n2_float;
 
                 total.setText(total_float+"");
+                Log.d(TAG, " FIN MULTIPLICACION, TOTAL: "+String.valueOf(total_float)+"");
 
             }
         });
@@ -99,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         div.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Log.d(TAG, " INICIO DIVISION");
                 if (!n1.getText().equals("")) {
                     n1_float = Float.parseFloat(n1.getText()+"");
                 } else {
@@ -113,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 total_float = n1_float/n2_float;
 
                 total.setText(total_float+"");
+                Log.d(TAG, " FIN DIVISION, TOTAL: "+String.valueOf(total_float)+"");
 
             }
         });
